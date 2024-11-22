@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="10">
+    <title>Scanned Data Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .plot-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scanned Data Summary</h1>
+
+    <ul>
+        {% for ref, count in counts.items() %}
+            <li>{{ ref }}: {{ count }} boxes</li>
+        {% endfor %}
+    </ul>
+
+    <div class="plot-container">
+        <h2>Scanned Boxes Plot</h2>
+        <!-- Embed the Plotly plot -->
+        {{ plot_html|safe }}
+    </div>
+</body>
+</html>
